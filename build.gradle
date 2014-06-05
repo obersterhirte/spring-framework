@@ -694,6 +694,22 @@ project("spring-orm-hibernate4") {
 	}
 }
 
+project("spring-orm-ibatis") {
+	description = "Spring Object/Relational Mapping - Ibatis support"
+
+	compileTestJava {
+		// necessary to avoid java.lang.VerifyError on TopLink compilation
+		sourceCompatibility=1.6
+		targetCompatibility=1.6
+	}
+
+	dependencies {
+		compile(project(":spring-orm"))
+		compile("org.apache.ibatis:ibatis-sqlmap:2.3.4.726")
+	}
+}
+
+
 project("spring-webmvc") {
 	description = "Spring Web MVC"
 
